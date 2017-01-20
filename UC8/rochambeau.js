@@ -100,5 +100,20 @@ function displayScoreBoard(winsId, lossesId, tiesId, mWinsId, cpWinsId) {
 }
 
 function displayRounds(){
-    if (score[0] + score[2] >= 3)
+    if ((score[0] + score[2]) >= 3){
+        if (score[0] > score[2]){
+            ++roundScore(mWinsId);
+            score[0] = 0;
+            score[1] = 0;
+            score[2] = 0;
+
+        }
+        else if (score[2] > score[0]){
+            ++roundScore(cpWinsId);
+            score[0] = 0;
+            score[1] = 0;
+            score[2] = 0;
+        }
+    }
+
 }
