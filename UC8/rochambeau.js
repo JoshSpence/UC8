@@ -1,6 +1,7 @@
 var plyerChoice;
 var computerChoice;
 var score = [0, 0, 0];
+var roundScore = [0,0];
 
 function storePlayerChoice(choice) {
     playerChoice = choice;
@@ -90,8 +91,14 @@ function updateScore(val) {
     console.log("The score is now " + score);
 }
 
-function displayScoreBoard(winsId, lossesId, tiesId) {
+function displayScoreBoard(winsId, lossesId, tiesId, mWinsId, cpWinsId) {
     document.getElementById(winsId).innerHTML = score[0];
     document.getElementById(lossesId).innerHTML = score[2];
     document.getElementById(tiesId).innerHTML = score[1];
+    document.getElementById(mWinsId).innerHTML = roundScore[0];
+    document.getElementById(cpWinsId).innerHTML = roundScore[1];
+}
+
+function displayRounds(){
+    if (score[0] + score[2] >= 3)
 }
