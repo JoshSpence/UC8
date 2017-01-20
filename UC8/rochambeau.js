@@ -71,16 +71,19 @@ function displayGameResult(resultId) {
     var message = "Your choice was " + choices[playerChoice] + " and the computer's choice was " + choices[computerChoice] + "<br/>";
     if (result == 1) {
         updateScore(0);
+        displayRounds();
         document.getElementById(resultId).innerHTML = message + "YOU WIN!";
         document.getElementById(resultId).className = "alert alert-success";
     }
     else if (result == -1) {
         updateScore(2);
+        displayRounds();
         document.getElementById(resultId).innerHTML = message + "YOU LOOSE! ";
         document.getElementById(resultId).className = "alert alert-danger";
     }
     else {
         updateScore(1);
+        displayRounds();
         document.getElementById(resultId).innerHTML = message + "A tie. ";
         document.getElementById(resultId).className = "alert alert-info";
     }
@@ -102,14 +105,14 @@ function displayScoreBoard(winsId, lossesId, tiesId, mWinsId, cpWinsId) {
 function displayRounds(){
     if ((score[0] + score[2]) >= 3){
         if (score[0] > score[2]){
-            ++roundScore(mWinsId);
+            ++roundScore[0];
             score[0] = 0;
             score[1] = 0;
             score[2] = 0;
 
         }
         else if (score[2] > score[0]){
-            ++roundScore(cpWinsId);
+            ++roundScore[1];
             score[0] = 0;
             score[1] = 0;
             score[2] = 0;
